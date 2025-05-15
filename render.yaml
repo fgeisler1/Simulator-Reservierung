@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: simulator-reservierung
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    plan: free
+    region: frankfurt
+    envVars:
+      - key: FLASK_ENV
+        value: production
