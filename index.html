@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Simulator Reservierung</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <h1>Reserviere deinen Simulator</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/reservieren">
+      <label>Name:</label><br>
+      <input type="text" name="name" required><br>
+
+      <label>Telefonnummer:</label><br>
+      <input type="text" name="telefon" required><br>
+
+      <label>Simulator-Typ:</label><br>
+      <select name="simulator_typ" required>
+        <option value="Statisch">Statisch</option>
+        <option value="Motion">Motion</option>
+      </select><br>
+
+      <label>Anzahl Simulatoren:</label><br>
+      <input type="number" name="anzahl" min="1" max="10" required><br>
+
+      <label>Datum:</label><br>
+      <input type="date" name="datum" required><br>
+
+      <label>Uhrzeit:</label><br>
+      <input type="time" name="uhrzeit" required><br><br>
+
+      <input type="submit" value="Reservieren">
+    </form>
+  </body>
+</html>

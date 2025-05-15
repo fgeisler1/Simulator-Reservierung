@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Admin – Reservierungen</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <h1>Alle Reservierungen</h1>
+    <table border="1">
+      <tr>
+        <th>Name</th>
+        <th>Telefon</th>
+        <th>Simulator</th>
+        <th>Anzahl</th>
+        <th>Datum</th>
+        <th>Uhrzeit</th>
+      </tr>
+      {% for r in reservierungen %}
+      <tr>
+        <td>{{ r.name }}</td>
+        <td>{{ r.telefon }}</td>
+        <td>{{ r.simulator_typ }}</td>
+        <td>{{ r.anzahl }}</td>
+        <td>{{ r.datum }}</td>
+        <td>{{ r.uhrzeit }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
